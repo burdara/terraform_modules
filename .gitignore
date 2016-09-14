@@ -1,0 +1,7 @@
+# terraform files
+.terraform
+*.tfstate
+*.tfstate.backup
+
+# temp files / directories
+.tmp*
