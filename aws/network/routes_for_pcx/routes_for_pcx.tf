@@ -1,8 +1,8 @@
 /* terraform module
- * aws : network : route_to_pcx
- * Author: Robbie Burda
+ * aws : network : routes_for_pcx
+ * Author: Robbie Burda (https://github.com/burdara)
  *
- * Module for creating a route to peering connection.
+ * Module for creating routes for peering connection.
  */
 variable "route_table_ids" {
   description = "List of route table IDs."

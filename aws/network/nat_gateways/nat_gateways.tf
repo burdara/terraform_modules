@@ -1,6 +1,6 @@
 /* terraform module
  * aws : network : nat_gateways
- * Author: Robbie Burda
+ * Author: Robbie Burda (https://github.com/burdara)
  *
  * Module for creating NAT gateways.
  */

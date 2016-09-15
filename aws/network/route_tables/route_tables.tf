@@ -1,6 +1,6 @@
 /* terraform module
  * aws : network : route_tables
- * Author: Robbie Burda
+ * Author: Robbie Burda (https://github.com/burdara)
  *
  * Module for creating route tables
  */
@@ -38,7 +38,8 @@ variable "type" {
 variable "info" {
   description = "Map of general support information."
   type        = "map"
-  default     = {
+
+  default = {
     managed_by_short = "terraform"
     managed_by_long  = "Managed by Terraform."
     src_repo_url     = "https://github.com/burdara/terraform_modules"

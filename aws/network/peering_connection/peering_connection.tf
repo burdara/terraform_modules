@@ -1,6 +1,6 @@
 /* terraform module
  * aws : network : peering_connection
- * Author: Robbie Burda
+ * Author: Robbie Burda (https://github.com/burdara)
  *
  * Module for creating peering connection
  */

@@ -1,8 +1,8 @@
 /* terraform module
- * aws : network : route_to_nats
- * Author: Robbie Burda
+ * aws : network : routes_for_nats
+ * Author: Robbie Burda (https://github.com/burdara)
  *
- * Module for creating a routes to a NAT gateway.
+ * Module for creating routes for your NAT gateways.
  */
 variable "route_table_ids" {
   description = "List of route table ids."

@@ -1,8 +1,8 @@
 /* terraform module
- * aws : network : route_to_igw
- * Author: Robbie Burda
+ * aws : network : route_for_igw
+ * Author: Robbie Burda (https://github.com/burdara)
  *
- * Module for creating a route to the vpc's internet gateway.
+ * Module for creating routes to your internet gateway.
  */
 variable "route_table_ids" {
   description = "List of route table IDs."
