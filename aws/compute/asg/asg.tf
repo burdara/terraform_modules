@@ -114,13 +114,13 @@ resource "aws_autoscaling_group" "app" {
 
   tag {
     key                 = "ManagedBy"
-    value               = "${var.info.managed_by_short}"
+    value               = "${var.info["managed_by_short"]}"
     propagate_at_launch = true
   }
 
   tag {
     key                 = "SrcRepo"
-    value               = "${var.info.src_repo_url}"
+    value               = "${var.info["src_repo_url"]}"
     propagate_at_launch = true
   }
 }

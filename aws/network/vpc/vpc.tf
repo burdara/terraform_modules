@@ -45,8 +45,8 @@ resource "aws_vpc" "vpc" {
     Name        = "${var.envid}-${var.name}"
     Environment = "${var.envname}"
     Role        = "networking"
-    ManagedBy   = "${var.info.managed_by_short}"
-    SrcRepo     = "${var.info.src_repo_url}"
+    ManagedBy   = "${var.info["managed_by_short"]}"
+    SrcRepo     = "${var.info["src_repo_url"]}"
   }
 }
 
@@ -57,8 +57,8 @@ resource "aws_internet_gateway" "vpc" {
     Name        = "${var.envid}-${var.name}"
     Environment = "${var.envname}"
     Role        = "networking"
-    ManagedBy   = "${var.info.managed_by_short}"
-    SrcRepo     = "${var.info.src_repo_url}"
+    ManagedBy   = "${var.info["managed_by_short"]}"
+    SrcRepo     = "${var.info["src_repo_url"]}"
   }
 }
 

@@ -60,8 +60,8 @@ resource "aws_subnet" "subnet" {
     Name        = "${var.envid}.${var.name}.${element(var.azs, count.index)}"
     Environment = "${var.envname}"
     Role        = "networking"
-    ManagedBy   = "${var.info.managed_by_short}"
-    SrcRepo     = "${var.info.src_repo_url}"
+    ManagedBy   = "${var.info["managed_by_short"]}"
+    SrcRepo     = "${var.info["src_repo_url"]}"
   }
 }
 

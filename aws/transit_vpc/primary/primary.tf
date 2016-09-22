@@ -137,8 +137,8 @@ resource "aws_cloudformation_stack" "primary" {
     Environment = "${var.envname}"
     Role        = "stack"
     App         = "transit-vpc-primary"
-    ManagedBy   = "${var.info.managed_by_short}"
-    SrcRepo     = "${var.info.src_repo_url}"
+    ManagedBy   = "${var.info["managed_by_short"]}"
+    SrcRepo     = "${var.info["src_repo_url"]}"
   }
 }
 

@@ -60,8 +60,8 @@ resource "aws_cloudformation_stack" "secondary" {
     Environment = "${var.envname}"
     Role        = "stack"
     App         = "transit-vpc-secondary"
-    ManagedBy   = "${var.info.managed_by_short}"
-    SrcRepo     = "${var.info.src_repo_url}"
+    ManagedBy   = "${var.info["managed_by_short"]}"
+    SrcRepo     = "${var.info["src_repo_url"]}"
   }
 }
 

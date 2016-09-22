@@ -55,8 +55,8 @@ resource "aws_route_table" "public" {
     Environment = "${var.envname}"
     Role        = "networking"
     Type        = "${var.type}"
-    ManagedBy   = "${var.info.managed_by_short}"
-    SrcRepo     = "${var.info.src_repo_url}"
+    ManagedBy   = "${var.info["managed_by_short"]}"
+    SrcRepo     = "${var.info["src_repo_url"]}"
   }
 }
 
