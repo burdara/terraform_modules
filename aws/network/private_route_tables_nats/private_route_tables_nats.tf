@@ -28,6 +28,7 @@ variable "vpc_id" {
 variable "azs" {
   description = "List of availibility zones."
   type        = "list"
+  default     = []
 }
 
 variable "natgw_ids" {
@@ -47,6 +48,8 @@ module "private_route_tables" {
 
 module "routes_for_nats" {
   source          = "../routes_for_nats"
+  count           = "${length(var.azs)}"
+  // count           = "${length(module.private_route_tables.ids)}"
   route_table_ids = ["${module.private_route_tables.ids}"]
   natgw_ids       = ["${var.natgw_ids}"]
 }

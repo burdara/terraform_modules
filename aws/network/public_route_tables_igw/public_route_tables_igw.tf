@@ -28,6 +28,7 @@ variable "vpc_id" {
 variable "azs" {
   description = "List of availibility zones."
   type        = "list"
+  default     = []
 }
 
 variable "igw_id" {
@@ -47,6 +48,8 @@ module "public_route_tables" {
 
 module "routes_for_igw" {
   source          = "../routes_for_igw"
+  count           = "${length(var.azs)}"
+  // count           = "${length(module.public_route_tables.ids)}"
   route_table_ids = ["${module.public_route_tables.ids}"]
   igw_id          = "${var.igw_id}"
 }

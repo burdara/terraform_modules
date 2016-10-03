@@ -27,6 +27,7 @@ variable "vpc_id" {
 variable "cidrs" {
   description = "List of CIDR blocks."
   type        = "list"
+  default     = []
 }
 
 variable "azs" {
@@ -51,7 +52,7 @@ variable "info" {
 }
 
 resource "aws_subnet" "subnet" {
-  count             = "${length(compact(var.cidrs))}"
+  count             = "${length(var.cidrs)}"
   vpc_id            = "${var.vpc_id}"
   cidr_block        = "${element(var.cidrs, count.index)}"
   availability_zone = "${element(var.azs, count.index)}"
@@ -66,9 +67,16 @@ resource "aws_subnet" "subnet" {
 }
 
 resource "aws_route_table_association" "subnet" {
-  count          = "${length(compact(var.cidrs))}"
+  count          = "${length(var.cidrs)}"
   subnet_id      = "${element(aws_subnet.subnet.*.id, count.index)}"
   route_table_id = "${element(var.rtb_ids, count.index)}"
+}
+
+/* desciption = "Count of subnets"
+ * type       = "string"
+ */
+output "count" {
+  value = ["${length(compact(aws_subnet.subnet.*.id))}"]
 }
 
 /* desciption = "List of subnet IDs."

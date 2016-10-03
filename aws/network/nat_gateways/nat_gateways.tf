@@ -4,18 +4,32 @@
  *
  * Module for creating NAT gateways.
  */
+
+/* TODO(robbieb): adding this due to terraform bug
+ * using subnet_ids list to calculate count causes a graph cycle currently.
+ * Related issues:
+ *   https://github.com/hashicorp/terraform/issues/2301
+ */
+variable "count" {
+  description = "Number of NAT gateways to create."
+  type        = "string"
+}
+
 variable "subnet_ids" {
   description = "List of NAT Gateway subnet IDs."
   type        = "list"
+  default     = []
 }
 
 resource "aws_eip" "nat" {
-  count = "${length(compact(var.subnet_ids))}"
+  count = "${var.count}"
+  // count = "${length(var.subnet_ids)}"
   vpc   = true
 }
 
 resource "aws_nat_gateway" "nat" {
-  count         = "${length(compact(var.subnet_ids))}"
+  count         = "${var.count}"
+  // count         = "${length(var.subnet_ids)}"
   allocation_id = "${element(aws_eip.nat.*.id, count.index)}"
   subnet_id     = "${element(var.subnet_ids, count.index)}"
 }
